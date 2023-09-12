@@ -20,19 +20,19 @@ Trang web sử dụng Framework Laravel.
 4. chỉnh sửa thông tin cá nhân
 5. quản lí lịch hẹn và hóa đơn sân bóng(tên khách hàng, giờ đặt, khung giờ)
 6. thống kê theo ngày, tháng
+- Khách hàng:
+1. đặt sân, hủy sân
+2. báo cáo và đánh giá
+3. chỉnh sữa thông tin cá nhân
 
-## Plugins
+## Phân tích chức năng 
 
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
+| Các tác nhân | Chủ sân bóng |
 | ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-## License
+| Mo tả | Đăng ký số sân chủ quản lí |
+| Kích hoạt | Người dùng tạo số sân bóng đang sở hữu |
+| Đầu vào | Tên sân <br> Đăng ký số sân, loại sân <br> Giá/giờ |
+| Trình tự xử lí | Quản lí sân đăng ký số sân quản lí ở trang menu <br> Điền đầy đủ thông tin sân, số sân, loại sân <br> Tạo sân thành công |
+| Lưu ý | Kiểm tra xem đã đăng nhập bằng Javascript |
+## Bản quyền
+MIT
