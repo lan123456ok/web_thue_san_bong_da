@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app-creative-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-</head>
+    </head>
 
 <body class="" data-layout-config="{&quot;leftSideBarTheme&quot;:&quot;dark&quot;,&quot;layoutBoxed&quot;:false, &quot;leftSidebarCondensed&quot;:false, &quot;leftSidebarScrollable&quot;:false,&quot;darkMode&quot;:true, &quot;showRightSidebarOnStart&quot;: true}" data-leftbar-theme="dark">
     <!-- Begin page -->
@@ -66,7 +66,6 @@
     <script src="{{ asset('js/vendor.min.js') }}"></script>
     <script src="{{ asset('js/app.min.js') }}"></script>
     @stack('js')
-
 </body>
 
 </html>

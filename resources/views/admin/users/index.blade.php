@@ -20,6 +20,21 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="pitch">Pitch</label>
+                            <div class="col-3">
+                                <select class="form-control select-filter" name="pitch" id="pitch">
+                                    <option selected value="">All</option>
+                                    @foreach ($pitches as $pitch)
+                                        <option value="{{ $pitch->id }}" @if ($pitch->id === (int)$selectedPitch)
+                                            selected
+                                        @endif>
+                                            {{ $pitch->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="card-body">
@@ -59,7 +74,13 @@
                                     <td>
                                         {{ optional($each->pitch)->name }}
                                     </td>
-
+                                    <td>
+                                        <form action="{{ route("admin.$table.destroy", $each) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
