@@ -71,6 +71,20 @@
                         <input class="form-control" type="password" required id="password"
                                placeholder="Enter your password" name="password">
                     </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" name="role" id="customer" class="custom-control-input" value="3" checked/>
+                            <label class="custom-control-label" for="customer">
+                                Customer
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" name="role" id="pitch_owner" class="custom-control-input" value="2"/>
+                            <label class="custom-control-label" for="pitch_owner">
+                                Pitch Owner
+                            </label>
+                        </div>
+                    </div>
                     {{-- <div class="form-group">
                         @foreach($roles as $role => $val)
                             <div class="custom-control custom-radio custom-control-inline">
@@ -105,7 +119,7 @@
 
                 <!-- Footer-->
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Already have account? <a href="pages-login-2.html" class="text-muted ml-1"><b>Log
+                    <p class="text-muted">Already have account? <a href="{{ route('login') }}" class="text-muted ml-1"><b>Log
                                 In</b></a></p>
                 </footer>
 
