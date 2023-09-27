@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->foreignId('type_id')->constrained();
             $table->double('price_per_hour');
-            $table->bigInteger('number_rendered');
+            $table->bigInteger('number_rentered');
             $table->foreignId('pitch_id')->constrained();
 //            $table->string('slug');
         });

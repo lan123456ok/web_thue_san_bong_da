@@ -17,7 +17,7 @@ class PitchFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=> fake()->company(),
+            'name'=> 'Sân'. ' ' . fake()->company(),
             'address'=> fake()->streetAddress(),
             'address2'=> fake()->buildingNumber(),
             'district'=> fake()->city,

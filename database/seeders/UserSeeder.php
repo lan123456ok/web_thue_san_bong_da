@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         $pitch = Pitch::query()->pluck('id')->toArray();
         // pluck vua select vua bien thanh mang dc
 
-        for($i = 1; $i <= 100000; $i++){
+        for($i = 1; $i <= 2000; $i++){
             $role = fake()->randomElement(UserRoleEnum::getValues());
             $arr =[
             'name'=> $faker->firstName() . ' ' . fake()->lastName(),

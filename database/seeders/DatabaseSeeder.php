@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Pitch;
+use App\Models\SubPitch;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         Type::factory(3)->create();
         Pitch::factory(10)->create();
+        SubPitch::factory(20)->create();
 //        User::factory(20)->create();
         $this->call(UserSeeder::class);
     }

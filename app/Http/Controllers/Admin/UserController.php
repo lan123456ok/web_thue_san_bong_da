@@ -8,7 +8,6 @@ use App\Models\Pitch;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserController extends Controller
 {
