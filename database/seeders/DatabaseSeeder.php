@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
         Type::factory(3)->create();
         Pitch::factory(10)->create();
         SubPitch::factory(20)->create();
-//        User::factory(20)->create();
         $this->call(UserSeeder::class);
     }
 }

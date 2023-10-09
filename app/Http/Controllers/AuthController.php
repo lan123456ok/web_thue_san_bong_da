@@ -71,7 +71,7 @@ class AuthController extends Controller
             ]);
             Auth::login($user);
         }
-        // return redirect()->route('/');
+//         return redirect()->route("/welcome");
     }
 
     public function logout(Request $request) : RedirectResponse

@@ -2,19 +2,19 @@
       <!-- LOGO -->
       <a href="index.html" class="logo text-center logo-light">
           <span class="logo-lg">
-              <img src="assets/images/logo.png" alt="" height="16">
+              <img src="#" alt="" height="16">
           </span>
           <span class="logo-sm">
-              <img src="assets/images/logo_sm.png" alt="" height="16">
+              <img src="#" alt="" height="16">
           </span>
       </a>
       <!-- LOGO -->
       <a href="index.html" class="logo text-center logo-dark">
           <span class="logo-lg">
-              <img src="assets/images/logo-dark.png" alt="" height="16">
+              <img src="#" alt="" height="16">
           </span>
           <span class="logo-sm">
-              <img src="assets/images/logo_sm_dark.png" alt="" height="16">
+              <img src="#" alt="" height="16">
           </span>
       </a>
 
@@ -37,6 +37,13 @@
                                       <a href="{{ route('admin.users.index') }}" class="side-nav-link">
                                           <i class="uil-users-alt"></i>
                                           <span> Users </span>
+                                      </a>
+                                  </li>
+
+                                  <li class="side-nav-item">
+                                      <a href="{{ route('admin.campaigns.index') }}" class="side-nav-link">
+                                          <i class="uil-clipboard-alt"></i>
+                                          <span> Campaigns </span>
                                       </a>
                                   </li>
                               </ul>
