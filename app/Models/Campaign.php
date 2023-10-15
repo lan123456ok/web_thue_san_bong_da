@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CampaignStatus;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,5 +35,10 @@ class Campaign extends Model
                 'source' => 'campaign_title',
             ]
         ];
+    }
+
+    public function getStatusNameAttribute(): string
+    {
+        return CampaignStatus::getKey($this->status);
     }
 }

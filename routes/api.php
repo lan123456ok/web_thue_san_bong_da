@@ -8,3 +8,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::get('/campaigns', [CampaignController::class, 'index'])->name('campaigns');
+ 
