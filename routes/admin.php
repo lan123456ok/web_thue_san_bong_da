@@ -24,4 +24,10 @@ Route::group([
     Route::get('/create', [CampaignController::class, 'create'])->name('create');
     Route::post('/import-csv', [CampaignController::class, 'importCSV'])->name('import_csv');
 });
-
+Route::group([
+    'as' => 'pitches.',
+    'prefix' => 'pitches',
+], static function () {
+    Route::get('/', [PitchController::class, 'index'])->name('index');
+    Route::get('/create', [PitchController::class, 'create'])->name('create');
+});

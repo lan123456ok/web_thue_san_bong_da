@@ -28,10 +28,7 @@ class CampaignController extends Controller
     }
 
     public function create() {
-        $pitches = Pitch::query()->get();
-        return view('admin.campaigns.create',[
-            'pitches' => $pitches,
-        ]);
+        return view('admin.campaigns.create');
     }
 
     public function importCSV(Request $request) {

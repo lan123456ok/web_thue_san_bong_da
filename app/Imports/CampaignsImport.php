@@ -46,7 +46,7 @@ class CampaignsImport implements ToArray, WithHeadingRow
                 ]);
 
                 Campaign::create([
-                    'campaign_title' => $pitchName.'-'.$city,
+                    'campaign_title' => $pitchName. $sub_pitch['name'] .'-'.$city,
                     'pitch_id' => $pitch->id,
                     'sub_pitch_id' => 1,
                     'date' => $date,

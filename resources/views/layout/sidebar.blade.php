@@ -46,6 +46,13 @@
                                           <span> Campaigns </span>
                                       </a>
                                   </li>
+
+                                  <li class="side-nav-item">
+                                      <a href="{{ route('admin.pitches.index') }}" class="side-nav-link">
+                                          <i class="uil-clipboard-alt"></i>
+                                          <span> Pitches </span>
+                                      </a>
+                                  </li>
                               </ul>
                               <!-- End Sidebar -->
                               <div class="clearfix"></div>

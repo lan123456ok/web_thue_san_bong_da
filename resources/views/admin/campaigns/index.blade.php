@@ -50,7 +50,7 @@
                 data: { page: {{ request()->get('page') ?? 1 }} },
                 dataType: 'json',
                 success: function (response) {
-                    response.data.forEach(function(each) {
+                    response.data.data.forEach(function(each) {
                         // console.log(each);
                         let created_at = formatDateTimeToDate(each.created_at);
                         $('#table-data').append($('<tr>')
@@ -67,8 +67,17 @@
                             .append($('<td>').append(created_at))
                         );
                     });
-                    renderPagination(response.pagination);
-                }
+                    renderPagination(response.data.pagination);
+                },
+                error : function(response) {
+                    $.toast({
+                            heading: 'Error !!!',
+                            text: response.responseJSON.message,
+                            showHideTransition: 'slide',
+                            position: 'bottom-right',
+                            icon: 'error'
+                    });
+                },
             });
             $(document).on('click', '#pagination > li > a' ,function (event) {
                 event.preventDefault();
@@ -91,7 +100,7 @@
                     cache: false,
                     contentType: false,
                     processData: false,
-                    success: function(respone) {
+                    success: function() {
                         $.toast({
                             heading: 'Import Success',
                             text: 'Your data has been imported successfully',
@@ -100,8 +109,8 @@
                             icon: 'success'
                         });
                     },
-                    // error: function(respone) {
-                    //     //console.log(respone);
+                    // error: function() {
+                    //     //console.log();
                     // }
                 });
             });
