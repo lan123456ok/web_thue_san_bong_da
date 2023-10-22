@@ -41,4 +41,6 @@ class Campaign extends Model
     {
         return CampaignStatus::getKey($this->status);
     }
+
+
 }

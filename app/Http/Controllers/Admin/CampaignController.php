@@ -3,15 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ResponseTrait;
 use App\Imports\CampaignsImport;
 use App\Models\Campaign;
 use App\Models\Pitch;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Maatwebsite\Excel\Facades\Excel;
+use Throwable;
 
 class CampaignController extends Controller
 {
+    use ResponseTrait;
     private object $model;
     private string $table;
 
@@ -31,7 +35,17 @@ class CampaignController extends Controller
         return view('admin.campaigns.create');
     }
 
-    public function importCSV(Request $request) {
-        Excel::import(new CampaignsImport(), $request->file('file'));
+    public function store(Request $request) {
+        dd($request->all());
+    }
+
+    public function importCSV(Request $request) : JsonResponse {
+        try {
+            Excel::import(new CampaignsImport(), $request->file('file'));
+
+            return $this->successResponse();
+        } catch (Throwable $e) {
+            return $this->errorResponse();
+        }
     }
 }

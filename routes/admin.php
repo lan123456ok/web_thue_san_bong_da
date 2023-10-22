@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CampaignController;
+use App\Http\Controllers\Admin\PitchController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ Route::group([
 ], static function () {
     Route::get('/', [CampaignController::class, 'index'])->name('index');
     Route::get('/create', [CampaignController::class, 'create'])->name('create');
+    Route::post('/create', [CampaignController::class, 'store'])->name('store');
     Route::post('/import-csv', [CampaignController::class, 'importCSV'])->name('import_csv');
 });
 Route::group([
