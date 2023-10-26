@@ -23,7 +23,7 @@ Route::group([
 ], static function () {
     Route::get('/', [CampaignController::class, 'index'])->name('index');
     Route::get('/create', [CampaignController::class, 'create'])->name('create');
-    Route::post('/create', [CampaignController::class, 'store'])->name('store');
+    Route::post('/store', [CampaignController::class, 'store'])->name('store');
     Route::post('/import-csv', [CampaignController::class, 'importCSV'])->name('import_csv');
 });
 Route::group([

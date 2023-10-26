@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pitch;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Js;
 
 class PitchController extends Controller
 {
@@ -21,5 +22,13 @@ class PitchController extends Controller
             ->get();
 
         return $this->successResponse($data);
+    }
+
+    public function check($pitchId) : JsonResponse {
+        $check = $this->model
+            ->where('id', $pitchId)
+            ->exists();
+
+        return $this->successResponse($check);
     }
 }

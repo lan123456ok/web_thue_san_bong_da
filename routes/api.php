@@ -13,4 +13,5 @@ Route::get('/campaigns', [CampaignController::class, 'index'])->name('campaigns'
 Route::post('/campaigns/slug', [CampaignController::class, 'generateSlug'])->name('campaigns.slug.generate');
 Route::get('/campaigns/slug', [CampaignController::class, 'checkSlug'])->name('campaigns.slug.check');
 Route::get('/pitches', [PitchController::class, 'index'])->name('pitches');
+Route::get('/pitches/check/{pitchId?}', [PitchController::class, 'check'])->name('pitches.check');
 Route::get('/subpitches', [SubPitchController::class, 'index'])->name('subpitches');

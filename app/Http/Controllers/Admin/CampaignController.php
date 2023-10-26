@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ResponseTrait;
+use App\Http\Requests\Campaign\StoreRequest;
 use App\Imports\CampaignsImport;
 use App\Models\Campaign;
 use App\Models\Pitch;
@@ -35,8 +36,8 @@ class CampaignController extends Controller
         return view('admin.campaigns.create');
     }
 
-    public function store(Request $request) {
-        dd($request->all());
+    public function store(StoreRequest $request) {
+        return $request->all();
     }
 
     public function importCSV(Request $request) : JsonResponse {
