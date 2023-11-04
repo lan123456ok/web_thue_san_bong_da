@@ -17,14 +17,14 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-4">
-                                <label for="pitch">Pitch (*)</label>
-                                <select name="pitch" class="form-control" id="select-pitch" data-placeholder="--Select Pitch--">
+                                <label for="pitch_id">Pitch (*)</label>
+                                <select name="pitch_id" class="form-control" id="select-pitch" data-placeholder="--Select Pitch--">
                                     <option value=""></option>
                                 </select>
                             </div>
                             <div class="form-group col-4">
-                                <label for="subpitch">SubPitch (*)</label>
-                                <select name="subpitch" class="form-control" id="select-subpitch" data-placeholder="--Select SubPitch--">
+                                <label for="sub_pitch_id">SubPitch (*)</label>
+                                <select name="sub_pitch_id" class="form-control" id="select-subpitch" data-placeholder="--Select SubPitch--">
                                     <option value=""></option>
                                 </select>
                             </div>
@@ -49,7 +49,7 @@
                         <div class="form-row">
                             <div class="form-group col-1">
                                 <label for="is_night">Night Time</label>
-                                <input class="form-control" type="checkbox" name="is_night" value="0" id="nightCheck" onclick="return false;">
+                                <input class="form-control" type="checkbox" name="isNight" value="0" id="nightCheck" onclick="return false;">
                             </div>
                             <div class="form-group col-5">
                                 <label for="price_per_hour">Price/Hour</label>
@@ -68,7 +68,7 @@
                         <div class="form-row">
                             <div class="form-group col-6">
                                 <label for="title">Campaign Title</label>
-                                <input class="form-control" type="text" name="title" id="title">
+                                <input class="form-control" type="text" name="campaign_title" id="title">
                             </div>
 
                             <div class="form-group col-6">
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success" id="btn-submit" >Create</button>
+                            <button class="btn btn-success" id="btn-submit" disabled>Create</button>
                         </div>
                     </form>
                 </div>
@@ -109,13 +109,13 @@
                 }
                 else {
                     $('#nightCheck').prop('checked', false).on('change', function() {
-                        this.value = 0;
+                        this.value = 10;
                         if (nightBonus > 0) {
                             nightBonus = 0;
                         }
                     }).change();
                 }
-
+                $('#input_end_time').val('');
                 $('#price_per_hour').val(pricePerHour + nightBonus);
             });
 
@@ -276,9 +276,11 @@
                     success: function(response) {
                         if(response.data) {
                             submitForm();
-                        } else {
-                            console.log(response);
                         }
+                    },
+                    error: function(response) {
+                        const error = response.responseJSON.message;
+                        showError(error);
                     },
                 })
             }
@@ -294,17 +296,25 @@
                     },
                     error: function(response) {
                         const errors = Object.values(response.responseJSON.errors);
-
-                        let stringHTML = "<ul class='m-0'>";
-                        errors.forEach(function(each) {
-                            each.forEach(function(error) {
-                                stringHTML += `<li>${error}</li>`;
-                            });
-                        });
-                        stringHTML += "</ul>";
-                        $('#div-error').html(stringHTML).removeClass('d-none').show();
+                        showError(errors);
                     },
                 });
+            }
+
+            function showError(errors) {
+                let stringHTML = "<ul class='m-0'>";
+
+                if(Array.isArray(errors)){
+                    errors.forEach(function(each) {
+                        each.forEach(function(error) {
+                            stringHTML += `<li>${error}</li>`;
+                        });
+                    });
+                } else {
+                    stringHTML += `<li>${errors}</li>`;
+                }
+                stringHTML += "</ul>";
+                $('#div-error').html(stringHTML).removeClass('d-none').show();
             }
         })
     </script>

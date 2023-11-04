@@ -21,6 +21,9 @@ class Campaign extends Model
         'date',
         'start_time',
         'end_time',
+        'isNight',
+        'total_price',
+        'slug',
     ];
     protected static function booted()
     {

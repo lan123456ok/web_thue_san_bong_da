@@ -28,10 +28,10 @@ class StoreRequest extends FormRequest
         $max_start_hours = '22:00';
 
         return [
-            'pitch' => [
+            'pitch_id' => [
                 'required',
             ],
-            'subpitch' => [
+            'sub_pitch_id' => [
               'required',
             ],
             'date' => [
@@ -54,7 +54,7 @@ class StoreRequest extends FormRequest
             'price_per_hour' => [
                 'required',
             ],
-            'title' => [
+            'campaign_title' => [
                 'string',
                 'filled'
             ],

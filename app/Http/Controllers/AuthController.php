@@ -44,8 +44,18 @@ class AuthController extends Controller
         $user->save();
 
         $role = strtolower(UserRoleEnum::getKeys($user->role)[0]);
-        // Auth::guard($role)->attempt($user);
         Auth::login($user);
+//        Auth::guard($role)->login($user, true);
+//        if(Auth::guard($role)->attempt([
+//            'email' => $user->email,
+//            'password' => $user->password,
+//            'role' => $user->role,
+//        ], true)) {
+//            session()->regenerate();
+//        }
+
+//        dd($role, auth()->guard('admin')->check());
+//        Auth::login($user);
 
         if ($checkExist) {
             // dd($role);

@@ -10,6 +10,7 @@ use App\Models\Campaign;
 use App\Models\Pitch;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
@@ -29,6 +30,7 @@ class CampaignController extends Controller
     }
 
     public function index() {
+//        dd(auth()->check(), auth()->guard('admin')->check());
         return view('admin.campaigns.index');
     }
 
@@ -37,7 +39,35 @@ class CampaignController extends Controller
     }
 
     public function store(StoreRequest $request) {
-        return $request->all();
+        DB::beginTransaction();
+        try {
+            $arr = $request->only([
+                'campaign_title',
+                'pitch_id',
+                'sub_pitch_id',
+                'status',
+                'date',
+                'start_time',
+                'end_time',
+                'isNight',
+                'total_price',
+                'slug',
+            ]);
+
+            if(!$request->has('isNight')) {
+                $arr['isNight'] = 0;
+            }
+            $arr['status'] = 0;
+
+            Campaign::create($arr);
+
+            DB::commit();
+            return $this->successResponse();
+        } catch (\Throwable $e) {
+            DB::rollback();
+            dd($e);
+            return $this->errorResponse();
+        }
     }
 
     public function importCSV(Request $request) : JsonResponse {

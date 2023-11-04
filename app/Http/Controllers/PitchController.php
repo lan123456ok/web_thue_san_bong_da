@@ -6,6 +6,7 @@ use App\Models\Pitch;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Js;
+use function PHPUnit\Framework\isEmpty;
 
 class PitchController extends Controller
 {
@@ -29,6 +30,9 @@ class PitchController extends Controller
             ->where('id', $pitchId)
             ->exists();
 
-        return $this->successResponse($check);
+        if($check) {
+            return $this->successResponse($check);
+        }
+        return $this->errorResponse("Pitch don't exist");
     }
 }

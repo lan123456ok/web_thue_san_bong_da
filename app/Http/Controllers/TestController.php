@@ -27,34 +27,5 @@ class TestController extends Controller
     }
 
     public function test() {
-//        dd(auth()->id());
-//        return DB::getSchemaBuilder()->getColumnListing('sub_pitches'); get all table's column name
-        $pitchName = 'Da cap';
-        $city = 'HCM';
-
-        $pitch = Pitch::firstOrCreate([
-            'name' => $pitchName,
-        ], [
-            'city' => $city,
-            'country' => 'Vietnam',
-        ]);
-
-        $sub_pitch = SubPitch::firstOrCreate([
-            'pitch_id' => $pitch->id,
-           ],[
-            'image' => '1',
-            'name' => 'Sân',
-            'number_rentered' => 1,
-            'price_per_hour' => 1,
-            'type_id' => 2,
-        ]);
-//        dd($sub_pitch->id);
-
-        Campaign::create([
-           'campaign_title' => $pitchName . '-' . $city,
-            'pitch_id' => $pitch->id,
-            'sub_pitch_id' => $sub_pitch->id,
-            'status' => CampaignStatus::AWAITING_TO_USE,
-        ]);
     }
 }
